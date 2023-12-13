@@ -13,7 +13,6 @@ async function getAllUsers(){
     return data;
 }
 async function updateUser(_id, user){
-    console.log("1");
     const data = await updateUserDB(_id, user);
     return data;
 }

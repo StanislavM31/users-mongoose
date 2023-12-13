@@ -18,7 +18,6 @@ async function getAllUsersDB() {
 }
 
 async function updateUserDB(_id, user) {
-  console.log("1");
   await TableUser.updateOne({ _id: new ObjectId(_id)}, { $set: user });
   const data = await TableUser.find({ _id: new ObjectId(_id)});
   console.log(data);

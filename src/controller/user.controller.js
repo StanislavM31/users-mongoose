@@ -30,7 +30,6 @@ route.get("/", async(req,res)=>{
 })
 route.put("/:_id", async(req,res)=>{
     try {
-        console.log("1");
         const data = await updateUser(req.params._id, req.body);
         res.send(data);
     } catch (error) {
