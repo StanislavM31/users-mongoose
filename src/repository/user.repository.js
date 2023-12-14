@@ -16,12 +16,15 @@ async function getAllUsersDB() {
   const data = await TableUser.find();
   return data;
 }
+async function getUserByIdDB(_id){
+  const data = await TableUser.findOne({ _id: new ObjectId(_id)});
+  return data
+}
 
 async function updateUserDB(_id, user) {
   await TableUser.updateOne({ _id: new ObjectId(_id)}, { $set: user });
   const data = await TableUser.find({ _id: new ObjectId(_id)});
-  console.log(data);
   return data;
 }
 
-module.exports = { createUserDB, deleteUserDB, getAllUsersDB, updateUserDB };
+module.exports = { createUserDB, deleteUserDB, getAllUsersDB, updateUserDB, getUserByIdDB };
