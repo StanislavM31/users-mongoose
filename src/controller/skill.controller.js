@@ -4,7 +4,8 @@ const {
   createSkill,
   getAll,
   deleteById,
-  updateById
+  updateById,
+  getSkillById
 } = require("../service/skill.service");
 
 const routeSkill = express.Router();
@@ -42,6 +43,14 @@ routeSkill.put("/:_id", async(req,res)=>{
     } catch (error) {
         res.send(error)
     }
+})
+routeSkill.get('/:_id', async(req,res)=>{
+  try {
+    const data = await getSkillById(req.params._id);
+    res.send(data);
+  } catch (error) {
+    res.send(error)
+  }
 })
 
 module.exports = routeSkill;

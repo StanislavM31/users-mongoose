@@ -2,7 +2,8 @@ const {
   createSkillDB,
   getAllDB,
   deleteByIdDB,
-  updateByIdDB
+  updateByIdDB,
+  getSkillByIdDB
 } = require("../repository/skill.repository.js");
 
 async function createSkill(skill) {
@@ -21,9 +22,14 @@ async function updateById(_id, skill){
     const data = await updateByIdDB(_id, skill);
     return data;
 }
+async function getSkillById(_id){
+  const data = await getSkillByIdDB(_id);
+  return data;
+}
 module.exports = {
   createSkill,
   getAll,
   deleteById,
-  updateById
+  updateById,
+  getSkillById
 };

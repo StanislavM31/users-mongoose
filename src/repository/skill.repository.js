@@ -19,13 +19,17 @@ async function deleteByIdDB(_id){
     return data;
 }
 async function updateByIdDB(_id, skill){
-    console.log("+");
     await TableSkills.updateOne({_id: new ObjectId(_id)}, {$set: skill});
     const data = await TableSkills.find();
+    return data;
+}
+async function getSkillByIdDB(_id){
+    const data = await TableSkills.findOne({_id: new ObjectId(_id)});
     return data;
 }
 module.exports = {
     createSkillDB,
     getAllDB,
     deleteByIdDB,
-    updateByIdDB};
+    updateByIdDB,
+    getSkillByIdDB};
